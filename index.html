@@ -14,6 +14,34 @@
     <section class="main"> 
         <h1>cursor Animation</h1>
     </section>
+
+
+
+    <script type="text/javascript">
+
+        const curso = document.querySelector("cursor")
+        var timeout;
+
+        //cursor mouvement
+
+        document.addEventListener("mousemove",(e) =>{
+            let x = e.pageX;
+            let y = e.pageY;
+
+            cursor.style.top = y + 'px';
+            cursor.style.left= x + 'px';
+            cursor.style.display = 'block';
+
+            //stop animation
+            fonction mouseStopped () {
+                cursor.style.display = 'none';
+            }
+
+            //hide animention
+            clearTimeout(timeout);
+            timeout = setTimeout(mouseStopped, 1000);
+        });
+    </script>
     
 </body>
 </html>
