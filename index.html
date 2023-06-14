@@ -17,31 +17,32 @@
 
 
 
-    <script type="text/javascript">
+   <script type="text/javascript">
 
-        const curso = document.querySelector("cursor")
-        var timeout;
+const cursor = document.querySelector(".cursor");
+var timeout;
 
-        //cursor mouvement
+// Mouvement du curseur
+document.addEventListener("mousemove", (e) => {
+  let x = e.pageX;
+  let y = e.pageY;
 
-        document.addEventListener("mousemove",(e) =>{
-            let x = e.pageX;
-            let y = e.pageY;
+  cursor.style.top = y + 'px';
+  cursor.style.left = x + 'px';
+  cursor.style.display = 'block';
 
-            cursor.style.top = y + 'px';
-            cursor.style.left= x + 'px';
-            cursor.style.display = 'block';
+  // Arrêter l'animation
+  function mouseStopped() {
+    cursor.style.display = 'none';
+  }
 
-            //stop animation
-            fonction mouseStopped () {
-                cursor.style.display = 'none';
-            }
+  // Cacher l'animation
+  clearTimeout(timeout);
+  timeout = setTimeout(mouseStopped, 1000);
+});
 
-            //hide animention
-            clearTimeout(timeout);
-            timeout = setTimeout(mouseStopped, 1000);
-        });
-    </script>
+</script>
+
     
 </body>
 </html>
